@@ -1,0 +1,10 @@
+---
+
+- name: service | start jupyterhub
+  service: name=jupyterhub
+           state=started
+           enabled=yes
+
+- name: service | wait until jupyterhub up
+  wait_for: port=8000
+            delay=10

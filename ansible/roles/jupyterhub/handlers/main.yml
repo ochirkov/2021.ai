@@ -1,0 +1,9 @@
+---
+
+- name: reload systemd daemon
+  command: systemctl daemon-reload
+  notify:
+    - reload systemd service
+
+- name: reload systemd service
+  service: name=jupyterhub state=restarted

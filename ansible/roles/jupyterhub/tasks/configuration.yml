@@ -1,0 +1,23 @@
+---
+
+- name: configuration | install nodejs repo
+  command: "curl -sL https://rpm.nodesource.com/setup_8.x | sudo bash -"
+
+- name: configuration | install nodejs
+  yum: name=nodejs
+       state=present
+
+- name: configuration | install proxy
+  npm: name=configurable-http-proxy
+       global=yes
+
+- name: configuration | install jupyterhub
+  pip: name=jupyterhub
+
+- name: configuration | install pandas
+  pip: name=pandas
+
+- name: configuration | create systemd unit
+  template: src=jupyterhub.service.j2
+            dest=/etc/systemd/system/jupyterhub.service
+  notify: reload systemd daemon
