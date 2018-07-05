@@ -1,7 +1,7 @@
 ---
 
 - name: configuration | install nodejs repo
-  command: "curl -sL https://rpm.nodesource.com/setup_8.x | sudo bash -"
+  shell: "curl -sL https://rpm.nodesource.com/setup_8.x | sudo bash -"
 
 - name: configuration | install nodejs
   yum: name=nodejs
