@@ -1,0 +1,9 @@
+version: '2'
+
+
+services:
+
+  jupyterhub:
+    image: 2021ai
+    ports:
+      - 8000:8000
