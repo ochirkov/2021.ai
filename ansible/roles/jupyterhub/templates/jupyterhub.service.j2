@@ -1,0 +1,17 @@
+[Unit]
+Description=jupyterhub service
+After=network.target
+
+[Service]
+Type=simple
+Restart=always
+TimeoutStartSec=3
+StandardOutput=syslog
+StandardError=syslog
+LimitNOFILE=300000
+LimitNPROC=300000
+
+ExecStart=jupyterhub
+
+[Install]
+WantedBy=multi-user.target
